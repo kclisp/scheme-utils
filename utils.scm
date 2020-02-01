@@ -9,11 +9,14 @@
   (and (pair? obj)
        (eq? (car obj) tag)))
 
+(define (default-of default-value obj)
+  (if (default-object? obj)
+      default-value
+      obj))
+
 ;;files
 (define (ls #!optional path%)
-  (let ((path (if (default-object? path%)
-                  "."
-                  path%)))
+  (let ((path (default-of "." path%)))
     (directory-file-names path)))
 
 ;;;split

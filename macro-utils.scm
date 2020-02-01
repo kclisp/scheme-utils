@@ -43,14 +43,9 @@
            ,@mfs)))))
 
 (defmacro (incf sym #!optional opt-incr)
-  (let ((incr (if (default-object? opt-incr)
-                  1
-                  opt-incr)))
+  (let ((incr (default-of 1 opt-incr)))
     `(set! ,sym (+ ,sym ,incr))))
 
 (defmacro (decf sym #!optional opt-decr)
-  (let ((decr (if (default-object? opt-decr)
-                  1
-                  opt-decr)))
+  (let ((decr (default-of 1 opt-decr)))
     `(incf ,sym ,(- decr))))
-

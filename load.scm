@@ -1,2 +1,2 @@
 (load-at "generic-procs" "load")
-(load '("macro-utils" "utils" "test"))
+(load '("utils" "macro-utils" "test"))
